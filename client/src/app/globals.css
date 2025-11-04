@@ -1,26 +1,94 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Enable dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
+/* ====== Base Theme Variables (Light / Default) ====== */
+@theme {
+  /* Global Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-text: var(--text);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-light: var(--light);
+  --color-dark: var(--dark);
+
+  /* navbar Colors (used by shadcn/ui navbar) */
+  --color-navbar: var(--navbar);
+  --color-navbar-foreground: var(--navbar-foreground);
+  --color-navbar-primary: var(--navbar-primary);
+  --color-navbar-primary-foreground: var(--navbar-primary-foreground);
+  --color-navbar-accent: var(--navbar-accent);
+  --color-navbar-accent-foreground: var(--navbar-accent-foreground);
+  --color-navbar-border: var(--navbar-border);
+  --color-navbar-ring: var(--navbar-ring);
+
+  /* Sidebar Colors (used by shadcn/ui sidebar) */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ====== Light Mode ====== */
+:root {
+  --background: #f3f4f6;
+  --foreground: #B7E5CD;
+  --primary: #000000;
+  --secondary: #ffffff;
+  --light: #ffffff;
+  --dark: #000000;
+
+
+
+  /* Navbar Light */
+  --navbar: #;
+
+  /* Navbar (light) */
+  --navbar: #305669;
+  --navbar-foreground: hsl(240 5.3% 26.1%);
+  --navbar-primary: hsl(217.2 91.2% 59.8%);
+  --navbar-primary-foreground: hsl(0 0% 98%);
+  --navbar-accent: hsl(240 4.8% 95.9%);
+  --navbar-accent-foreground: hsl(240 5.9% 10%);
+  --navbar-border: hsl(220 13% 91%);
+  --navbar-ring: hsl(217.2 91.2% 59.8%);
+
+  /* Sidebar (light) */
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(217.2 91.2% 59.8%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ====== Dark Mode ====== */
+.dark {
+  --background: #074d28;
+  --surface: var(--color-slate-900);
+  --text: hsl(0 0% 100%);
+  --primary: hsl(217.2 91.2% 69%);
+  --navbar: var(--color-slate-800);
+  --light: #000000;
+  --dark: #ffffff;
+
+
+  /* Sidebar (dark) */
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(217.2 91.2% 69%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }

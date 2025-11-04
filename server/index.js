@@ -26,8 +26,13 @@ db.connect((err) => {
 });
 
 // Test route
-app.get("/api/test", (req, res) => {
-  res.json({ message: "Yeay berjaya!" });
+app.get("/api/projects", async (req, res) => {
+  db.query("SELECT * FROM projects", (err, result) => {
+    if (err) {
+      res.status(500).json({ message: "Failed to fetch projects" });
+    }
+    res.json(result);
+  });
 });
 
 app.listen(5000, () =>
