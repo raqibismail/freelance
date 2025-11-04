@@ -1,10 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { formatDate } from "@/utils/helpers"
 import { Project } from "@/utils/model"
 import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown } from "lucide-react"
+import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you 
@@ -40,6 +41,36 @@ export const columns: ColumnDef<Project>[] = [
         cell: ({ row }) => {
             return <span>{formatDate(row.getValue("deadline"))}</span>
         }
+    },
+    {
+        id: "actions",
+        enableHiding: false,
+        cell: ({ row }) => {
+            const project = row.original;
+
+            return (
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild >
+                        <Button variant="ghost" className="h-8 w-8 p-0" >
+                            <span className="sr-only" > Open menu </span>
+                            < MoreHorizontal />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    < DropdownMenuContent align="end" >
+                        <DropdownMenuLabel>Actions </DropdownMenuLabel>
+                        < DropdownMenuItem
+                            onClick={() => navigator.clipboard.writeText((project.id).toString())
+                            }
+                        >
+                            Copy payment ID
+                        </DropdownMenuItem>
+                        < DropdownMenuSeparator />
+                        <DropdownMenuItem>View customer </DropdownMenuItem>
+                        < DropdownMenuItem > View payment details </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            );
+        },
     },
 
     // {

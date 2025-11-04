@@ -15,6 +15,11 @@
   --color-light: var(--light);
   --color-dark: var(--dark);
 
+  /* Popover Colors */
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+
   /* navbar Colors (used by shadcn/ui navbar) */
   --color-navbar: var(--navbar);
   --color-navbar-foreground: var(--navbar-foreground);
@@ -44,6 +49,10 @@
   --secondary: #ffffff;
   --light: #ffffff;
   --dark: #000000;
+
+  /* Popover */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
 
 
 
@@ -80,6 +89,10 @@
   --navbar: var(--color-slate-800);
   --light: #000000;
   --dark: #ffffff;
+
+  /* Popover */
+  --popover: oklch(0.269 0 0);
+  --popover-foreground: oklch(0.985 0 0);
 
 
   /* Sidebar (dark) */

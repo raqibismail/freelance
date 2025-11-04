@@ -2,6 +2,7 @@
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -14,32 +15,34 @@ import Image from "next/image"
 import { Menu } from "@/utils/sidebarMenu"
 import React from "react"
 import { usePathname } from "next/navigation"
+import { ModeToggle } from "./ToggleDarkButton"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 
 export function AppSidebar() {
   const pathname = usePathname() // detect current route
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" className="flex flex-col min-h-screen">
       <div className="flex justify-center p-4">
         <Image src="/logo.png" alt="Logo" width={120} height={120} />
       </div>
 
       <SidebarSeparator className="mx-0" />
 
-      <SidebarContent>
+      {/* This should take all available space */}
+      <SidebarContent className="flex-1">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
               {Menu.map((item) => {
                 const isActive = pathname === item.url
-
                 return (
                   <SidebarMenuItem key={item.url}>
                     <SidebarMenuButton
                       data-active={isActive}
                       className={`p-6 transition-colors ${isActive
-                          ? "bg-cyan-200 text-cyan-900 font-semibold"
-                          : "hover:bg-cyan-50"
+                        ? "bg-cyan-200 text-cyan-900 font-semibold"
+                        : "hover:bg-cyan-50"
                         }`}
                       asChild
                     >
@@ -55,6 +58,15 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
+      {/* Fixed footer section */}
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem className="flex flex-row justify-end">
+            <ModeToggle />
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   )
 }

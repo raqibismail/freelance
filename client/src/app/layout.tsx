@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../../public/globals.css";
 import { AppSidebar } from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import Footer from "../components/Footer";
@@ -36,7 +36,6 @@ export default function RootLayout({
                 <Footer />
               </div>
             </SidebarProvider>
-
           </div>
         </ThemeProvider>
       </body>
