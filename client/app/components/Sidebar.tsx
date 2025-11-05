@@ -23,8 +23,8 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" className="flex flex-col min-h-screen">
-      <div className="flex justify-center p-4">
-        <Image src="/logo.png" alt="Logo" width={120} height={120} />
+      <div className="flex justify-center">
+        <Image src="/logo.png" alt="Logo" width={200} height={200} />
       </div>
 
       <SidebarSeparator className="mx-0" />
